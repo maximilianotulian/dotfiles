@@ -63,4 +63,4 @@ fi
 
 ln -sfv "$DOTFILES_DIR/vim/.vimrc" ~
 
-printf "Instalation finished"
+printf "Installation finished"
