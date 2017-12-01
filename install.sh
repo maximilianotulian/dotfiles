@@ -40,6 +40,11 @@ if [ ! -d ~/.tmux-powerline ]; then
 	git clone https://github.com/erikw/tmux-powerline.git ~/tmux-powerline
 fi
 
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+	printf 'Adding tmux package manager';
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+fi
+
 ln -sfv "$DOTFILES_DIR/tmux/.tmux.conf" ~
 
 # VIM
