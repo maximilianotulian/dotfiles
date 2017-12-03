@@ -29,7 +29,7 @@ ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 # TMUX
 
 if [ ! -x "$(command -v tmux)" ]; then
-	printf 'Instaling TMUX';
+	printf 'Installing TMUX';
 	sudo -v;
 	sudo apt update;
 	sudo apt install tmux;
@@ -50,7 +50,7 @@ ln -sfv "$DOTFILES_DIR/tmux/.tmux.conf" ~
 # VIM
 
 if [ ! -x "$(command -v vim)" ]; then
-	printf 'Instaling VIM';
+	printf 'Installing VIM';
 	sudo -v;
 	sudo apt update;
 	sudo apt install vim;
@@ -63,4 +63,4 @@ fi
 
 ln -sfv "$DOTFILES_DIR/vim/.vimrc" ~
 
-printf "Instalation finished"
+printf "Installation finished"
