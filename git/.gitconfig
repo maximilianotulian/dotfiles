@@ -28,6 +28,9 @@
     sts = status -sb
     unstage = reset --hard HEAD
 
+[credential]
+    helper = store
+
 [color]
     ui = auto
 [color "branch"]
