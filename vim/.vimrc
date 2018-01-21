@@ -1,11 +1,14 @@
+set nocompatible
+filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#rc()
+call vundle#begin()
 
 " Plugins
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'gmarik/vundle'
 Plugin 'godlygeek/tabular'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'morhetz/gruvbox'
@@ -16,14 +19,24 @@ Plugin 'raimondi/delimitmate'
 Plugin 'rstacruz/sparkup'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-syntastic/syntastic'
 
 " The plugin declaration will be before this line
+call vundle#end()
 filetype plugin indent on
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
 
 " NerdTree config 'add shortkey to toggle'
 map <C-n> :NERDTreeTabsToggle<CR>
