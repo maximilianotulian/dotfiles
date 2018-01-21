@@ -29,15 +29,6 @@ Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 filetype plugin indent on
 
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to
-
 " NerdTree config 'add shortkey to toggle'
 map <C-n> :NERDTreeTabsToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -93,6 +84,7 @@ let g:syntastic_check_on_wq = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra' "local working directory when is invoked without starting directory"
+
 "To ignore files and directories
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$' "To ignore custom files and directories
@@ -102,17 +94,5 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " neerdTree config
 let g:nerdtree_tabs_no_startup_for_diff = 0
 
-" End config
-
-" USEFUL INFO
-" fugitive
-" :Gsplit, :Gvsplit, :Gtabedit....
-" :Gstatus
-" :Gblame brings up an interactive vertical split with git blame
-
-" surround
-" V + S + initial html tag
-" yssb wrap in ()
-" yss x where x is a (,{, [, wrap content in x
-" ds" to remove the delimeters entirely
-" cs"' to change " for '
+" markdown syntaxt config
+let g:vim_markdown_folding_disabled = 1
