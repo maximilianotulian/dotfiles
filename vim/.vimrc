@@ -14,7 +14,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'raimondi/delimitmate'
 Plugin 'rstacruz/sparkup'
-Plugin 'scrooloose/nerdcommenter' 
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
@@ -37,13 +37,21 @@ set autoindent "copy the indentation from the previous line
 set t_Co=256 "use 256 colours
 set number "insert line's number
 set incsearch "highlight while searching with / or ?
-set hlsearch "hihglight searches by default"
+"set hlsearch "hihglight searches by default"
 "set highlight Normal
 "set ctermfg dark
 "set ctermbg white
 
 " vim airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_theme = 'base16_colors'
+
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#syntastic#error_symbol = 'E:'
+let g:airline#extensions#syntastic#stl_format_err = '%E{[%e(#%fe)]}'
+let g:airline#extensions#syntastic#warning_symbol = 'W:'
+let g:airline#extensions#syntastic#stl_format_err = '%W{[%w(#%fw)]}'
 
 " vim-jsx config
 let g:jsx_ext_required = 0
@@ -73,9 +81,9 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra' "local working directory when is invoked without starting directory"
 "To ignore files and directories
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$' "To ignore custom files and directories
-let g:ctrlp_user_command = 'find %s -type f' "Use a custom file listing command" 
+let g:ctrlp_user_command = 'find %s -type f' "Use a custom file listing command"
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] "To ignore files in gitignore"
 
 " neerdTree config
@@ -84,7 +92,7 @@ let g:nerdtree_tabs_no_startup_for_diff = 0
 " End config
 
 " USEFUL INFO
-" fugitive 
+" fugitive
 " :Gsplit, :Gvsplit, :Gtabedit....
 " :Gstatus
 " :Gblame brings up an interactive vertical split with git blame
