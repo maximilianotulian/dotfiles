@@ -1,10 +1,5 @@
 [user]
     name = Maximiliano Tulian
-    email = m.tulian@globant.com
-
-[github]
-    user = glbmaximilianotulian
-
 [core]
     excludesfile = ~/.gitignore_global
     editor = vim
