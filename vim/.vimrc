@@ -23,8 +23,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'valloric/youcompleteme'
-Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-syntastic/syntastic'
 
 " The plugin declaration will be before this line
@@ -41,7 +41,7 @@ set shiftwidth=4 "when indenting with '>', use 4 spaces
 set expandtab "on pressing tab, insert 4 spaces
 set autoindent "copy the indentation from the previous line
 set t_Co=256 "use 256 colours
-set number "insert line's number
+set number relativenumber "insert line's number
 set incsearch "highlight while searching with / or ?
 "set hlsearch "hihglight searches by default"
 "set highlight Normal
@@ -71,6 +71,12 @@ set background=light
 
 " vim-javascript config
 let g:javascript_enable_domhtmlcss = 1
+
+" syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -104,11 +110,6 @@ let g:ctrlp_working_path_mode = 'ra' "local working directory when is invoked wi
 "To ignore files and directories
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$' "To ignore custom files and directories
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
 let g:ctrlp_user_command = 'find %s -type f' "Use a custom file listing command"
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] "To ignore files in gitignore"
 
