@@ -1,6 +1,6 @@
 # Configuration files
 
-My dotfiles. Feel free to use it, but at your own risk.
+My dotfiles. Feel free to use it.
 
 # Install
 
