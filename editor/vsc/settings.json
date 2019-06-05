@@ -1,0 +1,78 @@
+{
+    "bracketPairColorizer.forceUniqueOpeningColor": false,
+    "bracketPairColorizer.colorMode": "Consecutive",
+    "bracketPairColorizer.activeScopeCSS":[
+      "backgroundColor: {color}",
+      "borderColor : {color}",
+      "borderStyle : solid",
+      "borderWidth : 1px",
+    ],
+    "bracketPairColorizer.showBracketsInGutter": false,
+    "bracketPairColorizer.showVerticalScopeLine": false,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    "editor.cursorWidth": 5,
+    "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 15,
+    "editor.fontWeight": "400",
+    "editor.letterSpacing": 0.5,
+    "editor.lineHeight": 18,
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 2,
+    "editor.wordWrapColumn": 120,
+    "eslint.enable": true,
+    "eslint.options": {
+        "extensions": [
+            ".html",
+            ".js",
+            ".vue",
+            ".jsx"
+        ]
+    },
+    "eslint.validate": [
+      {
+      "language": "html",
+      "autoFix": true
+      },
+      {
+        "language": "vue",
+        "autoFix": false
+      },
+      {
+        "language": "javascript",
+        "autoFix": true
+      },
+      {
+        "language": "javascriptreact",
+        "autoFix": true
+      }
+    ],
+    "eslint.run": "onType",
+    "eslint.autoFixOnSave": true,
+    "breadcrumbs.enabled": true,
+
+    "files.trimTrailingWhitespace": true,
+    "prettier.eslintIntegration": true,
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Cobalt2",
+    "workbench.sideBar.location": "left",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "files.autoSave": "off",
+    "files.watcherExclude": {
+        "**/.git/subtree-cache": true,
+          // Very important: Install this plugin: https://github.com/be5invis/vscode-custom-css
+        // you'll need to change this to an absolute path on your computer
+       /*  "vscode_custom_css.imports": [
+          "/Volumes/Macintosh HD/Users/wesbos/.vscodestyles.css"
+        ],*/
+    },
+    "editor.multiCursorModifier": "ctrlCmd",
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[scss]": {
+      "editor.defaultFormatter": "sasa.vscode-sass-format"
+    }
+}
