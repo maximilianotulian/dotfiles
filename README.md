@@ -1,14 +1,8 @@
 # Configuration files
 
-My dotfiles. Feel free to use it.
+Those are my configuration files.
 
-# Install
-
-```
-git clone https://github.com/maximilianotulian/dotfiles ~/.dotfiles
-
-~/.dotfiles/install.sh
-```
+I will update the documentation and install script ASAP.
 
 # Credits
 
