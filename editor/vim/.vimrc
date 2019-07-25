@@ -6,16 +6,21 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alvan/vim-closetag'
 Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()            " required
@@ -29,6 +34,13 @@ augroup myvimrchooks " auto-reload configuration with :so %
   au!
   autocmd bufwritepost .vimrc source ~/.vimrc
 augroup END
+
+" show existing tab with 2 spaces width
+set tabstop=2
+" when indenting with '>', use 2 spaces width
+set shiftwidth=2
+" On pressing tab, insert 2 spaces
+set expandtab
 
 " syntastic
 set statusline+=%#warningmsg#
