@@ -35,12 +35,9 @@ augroup myvimrchooks " auto-reload configuration with :so %
   autocmd bufwritepost .vimrc source ~/.vimrc
 augroup END
 
-" show existing tab with 2 spaces width
-set tabstop=2
-" when indenting with '>', use 2 spaces width
-set shiftwidth=2
-" On pressing tab, insert 2 spaces
-set expandtab
+set tabstop=2 " show existing tab with 2 spaces width
+set shiftwidth=2 " when indenting with '>', use 2 spaces width
+set expandtab " On pressing tab, insert 2 spaces
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -59,30 +56,16 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " nerdcommenter
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
 
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
-let g:NERDToggleCheckAllLines = 1
-
-" todo-list
-let g:VimTodoListsCustomKeyMapper = 'VimTodoListsCustomMappings'
-
+let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters by default
+let g:NERDCompactSexyComs = 1 " Use compact syntax for prettified multi-line comments
+let g:NERDDefaultAlign = 'left' " Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } } " Add your own custom formats or override the defaults
+let g:NERDCommentEmptyLines = 1 " Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace when uncommenting
+let g:NERDToggleCheckAllLines = 1 " Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:VimTodoListsCustomKeyMapper = 'VimTodoListsCustomMappings' " todo-list
+ 
 function! VimTodoListsCustomMappings()
   nnoremap <buffer> s :VimTodoListsToggleItem<CR>
   nnoremap <buffer> <Space> :VimTodoListsToggleItem<CR>
@@ -95,5 +78,16 @@ nnoremap <buffer> nib :VimTodoListsCreateNewItemBelow<CR>
 " vim-devicons
 set encoding=utf8
 
-" whether or not to show the nerdtree brackets around flags
-let g:webdevicons_conceal_nerdtree_brackets = 0
+let g:webdevicons_conceal_nerdtree_brackets = 0 " whether or not to show the nerdtree brackets around flags
+
+" ctrlP
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrl_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra' "set local working directory
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip " exclude files
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	\ 'file': '\v\.(exe|so|dll)$',
+	\ }
