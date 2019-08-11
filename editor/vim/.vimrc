@@ -10,10 +10,10 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alvan/vim-closetag'
 Plugin 'aserebryakov/vim-todo-lists'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mileszs/ack.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -35,9 +35,14 @@ augroup myvimrchooks " auto-reload configuration with :so %
   autocmd bufwritepost .vimrc source ~/.vimrc
 augroup END
 
-set tabstop=2 " show existing tab with 2 spaces width
-set shiftwidth=2 " when indenting with '>', use 2 spaces width
-set expandtab " On pressing tab, insert 2 spaces
+" tabs
+au FileType javascript
+ \ setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab 
+au FileType css setlocal tabstop=2 expandtab shiftwidth=4 softtabstop=4
+au FileType scss setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=4
+
+syntax on "enable colors
+set t_Co=256
 
 " syntastic
 set statusline+=%#warningmsg#
