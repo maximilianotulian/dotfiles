@@ -47,9 +47,15 @@ au FileType json setlocal tabstop=2 softtabstop=0 expandtab shiftwidth=2 smartta
 au FileType html setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au FileType css setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
-syntax on "enable colors
-set t_Co=256
-set history=200
+syntax on
+set t_Co=256 " enable colors
+set history=200 " increment history size"
+" handle buffers
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 
 " syntastic
 set statusline+=%#warningmsg#
