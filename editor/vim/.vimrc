@@ -2,6 +2,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/tabnine-vim
+
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -13,6 +15,7 @@ Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'jparise/vim-graphql'
 Plugin 'mileszs/ack.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdcommenter'
@@ -27,8 +30,10 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " vim
-set number relativenumber
 nnoremap t <C-]> " jump to link
+set clipboard=unnamed " enable copy to global clipboard
+set number relativenumber
+syntax on
 
 augroup myvimrchooks " auto-reload configuration with :so %
   au!
@@ -50,12 +55,16 @@ au FileType css setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 syntax on
 set t_Co=256 " enable colors
 set history=200 " increment history size"
-" handle buffers
 
+" handle buffers
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+
+set backupdir=.backup/,~/.backup/,/tmp// "Update location for backup files"
+set directory=.swp/,~/.swp/,/tmp// "Update location for swap files"
+set undodir=.undo/,~/.undo/,/tmp// "Update location for undo files"
 
 " syntastic
 set statusline+=%#warningmsg#
