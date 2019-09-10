@@ -3,4 +3,7 @@ john,smith,john@example.com
 drew,neil,drew@vimcasts.org
 jane,doe,jane@example.com
 
-# command -> :2,$!sort -t',' -k2'
+# :range!sort -t',' -k2'
+# :range!filter
+# :shell
+# :read !{cmd}
