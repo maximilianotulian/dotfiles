@@ -6,6 +6,10 @@
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/dnvim2 for more book information.
 ***/
+var foo = 1;
+var bar = 'a';
+var foobar = foo + bar;
+
 var foo = 1
 var bar = 'a'
 var foobar = foo + bar
