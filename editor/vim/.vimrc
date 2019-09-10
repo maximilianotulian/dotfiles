@@ -35,6 +35,14 @@ set clipboard=unnamed " enable copy to global clipboard
 set number relativenumber
 syntax on
 
+" handle sessions
+set wildmenu
+set wildmode=full
+let g:session_dir = '~/vim-sessions' " default session directory
+
+exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/'
+exec 'nnoremap <Leader>sr :so ' . g:session_dir . '/'
+
 augroup myvimrchooks " auto-reload configuration with :so %
   au!
   autocmd bufwritepost .vimrc source ~/.vimrc
@@ -54,7 +62,8 @@ au FileType css setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 syntax on
 set t_Co=256 " enable colors
-set history=200 " increment history size"
+set history=200 " increment history size
+set hidden " enable file changes to be in background
 
 " handle buffers
 nnoremap <silent> [b :bprevious<CR>
