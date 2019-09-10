@@ -35,14 +35,21 @@ augroup myvimrchooks " auto-reload configuration with :so %
   autocmd bufwritepost .vimrc source ~/.vimrc
 augroup END
 
-" tabs
+" tabs and spaces
+autocmd BufWritePre * %s/\s\+$//e
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.styl,*.scss set filetype=css
+autocmd BufNewFile,BufRead *.html.erb set filetype=html
+
 au FileType javascript
- \ setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab 
-au FileType css setlocal tabstop=2 expandtab shiftwidth=4 softtabstop=4
-au FileType scss setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=4
+  \ setlocal tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+au FileType json setlocal tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+au FileType html setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+au FileType css setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 syntax on "enable colors
 set t_Co=256
+set history=200
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -68,9 +75,9 @@ let g:NERDDefaultAlign = 'left' " Align line-wise comment delimiters flush left 
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } } " Add your own custom formats or override the defaults
 let g:NERDCommentEmptyLines = 1 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace when uncommenting
-let g:NERDToggleCheckAllLines = 1 " Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:VimTodoListsCustomKeyMapper = 'VimTodoListsCustomMappings' " todo-list
- 
+
 function! VimTodoListsCustomMappings()
   nnoremap <buffer> s :VimTodoListsToggleItem<CR>
   nnoremap <buffer> <Space> :VimTodoListsToggleItem<CR>
@@ -96,3 +103,15 @@ let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
 	\ 'file': '\v\.(exe|so|dll)$',
 	\ }
+
+:if &term =~ "xterm"
+:  if has("terminfo")
+:	set t_Co=8
+:	set t_Sf=<Esc>[3%p1%dm
+:	set t_Sb=<Esc>[4%p1%dm
+:  else
+:	set t_Co=8
+:	set t_Sf=<Esc>[3%dm
+:	set t_Sb=<Esc>[4%dm
+:  endif
+:endif
