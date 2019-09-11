@@ -32,6 +32,7 @@ Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 filetype plugin indent on
 syntax on
+runtime macros/machit.vim
 
 " =======================================
 " ============ Vim options ==============
@@ -58,6 +59,13 @@ set title
 
 nnoremap t <C-]>
 
+" ++++++++++++++ Leader ++++++++++++++++
+
+let mapleader=","
+noremap \ ,
+noremap <Leader>n nzz
+noremap <Leader>N Nzz
+
 " ++++++++++++++ Tabs ++++++++++++++++++
 
 set tabstop=2
@@ -72,9 +80,7 @@ set ruler
 
 set wrap
 set textwidth=99
-set colorcolumn=+1
 set formatoptions=qrn1
-highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " ++++++++++++++ Files ++++++++++++++++
 
