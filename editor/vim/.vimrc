@@ -32,7 +32,6 @@ Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 filetype plugin indent on
 syntax on
-runtime macros/machit.vim
 
 " =======================================
 " ============ Vim options ==============
@@ -58,13 +57,6 @@ set t_Co=256
 set title
 
 nnoremap t <C-]>
-
-" ++++++++++++++ Leader ++++++++++++++++
-
-let mapleader=","
-noremap \ ,
-noremap <Leader>n nzz
-noremap <Leader>N Nzz
 
 " ++++++++++++++ Tabs ++++++++++++++++++
 
@@ -133,6 +125,10 @@ let g:syntastic_check_on_wq = 0
 
 " +++++++++++++ nerdtree ++++++++++++++++
 
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeIgnore=['\.vim$', 'node_modules$[[dir]]', '*.swp']
+
 map <C-n> :NERDTreeToggle<CR>
 
 autocmd StdinReadPre * let s:std_in=1
@@ -144,6 +140,17 @@ autocmd bufenter *
   \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |
   \ q |
   \ endif
+
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .
+    \' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('js', 'green', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('scss', 'cyan', 'none', 'cyan', '#151515')
 
 " ++++++++++ nerdcommenter +++++++++++++
 
