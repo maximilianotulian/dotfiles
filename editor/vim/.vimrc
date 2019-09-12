@@ -11,6 +11,7 @@ filetype off
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alvan/vim-closetag'
@@ -20,14 +21,16 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jparise/vim-graphql'
 Plugin 'mileszs/ack.vim'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
+
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()
 filetype plugin indent on
@@ -141,17 +144,6 @@ autocmd bufenter *
   \ q |
   \ endif
 
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .
-    \' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('js', 'green', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('scss', 'cyan', 'none', 'cyan', '#151515')
-
 " ++++++++++ nerdcommenter +++++++++++++
 
 let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters by default
@@ -174,7 +166,12 @@ nnoremap <buffer> nib :VimTodoListsCreateNewItemBelow<CR>
 
 " ++++++++++++  devicons +++++++++++++++
 
-let g:webdevicons_conceal_nerdtree_brackets = 0 " whether or not to show the nerdtree brackets around flags
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
+set encoding=UTF-8
+set guifont=DroidSansMono_Nerd_Font:h11
 
 " ++++++++++++  <Ctrl-P> +++++++++++++++
 
