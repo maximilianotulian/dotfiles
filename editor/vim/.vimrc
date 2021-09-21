@@ -26,6 +26,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'sudar/vim-arduino-syntax'
+Plugin 'stevearc/vim-arduino'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -63,6 +65,7 @@ set t_Co=256
 set title
 
 nnoremap t <C-]>
+map c I//<Space><ESC>=<CR>
 
 " ++++++++++++++ Tabs ++++++++++++++++++
 
@@ -82,7 +85,7 @@ set formatoptions=qrn1
 
 " ++++++++++++++ Files ++++++++++++++++
 
-autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\s\+$//e
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 autocmd BufNewFile,BufRead *.styl,*.scss set filetype=css
 autocmd BufNewFile,BufRead *.html.erb set filetype=html
@@ -187,5 +190,9 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
+
+" ++++++++++++  Arduino +++++++++++++++
+
+autocmd BufNewFile,BufRead *.ino let g:airline_section_x='%{MyStatusLine()}'
 
 " ============== End ==================
